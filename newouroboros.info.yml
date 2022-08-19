@@ -1,0 +1,45 @@
+name: New Ouroboros
+type: theme
+description: Ouroboros World Theme.
+core_version_requirement: ^8 || ^9
+screenshot: screenshot.jpg
+base theme: false
+
+# Regions
+regions:
+  logo: 'Logo'
+  breadcrumb: 'Breadcrumbs'
+  ticker: 'News Ticker'
+  header: 'System Header'
+  help: 'Help'
+  title: 'Page Title'
+  content: 'Content'
+  ads_header_horizontal: 'Ads Header Horizontal'
+  ads_middle_page: 'Ads Middle Page'
+  highlighted: 'Highlighted'
+  tab1: 'Home Tab1'
+  tab2: 'Home Tab2'
+  tab3: 'Home Tab3'
+  tab4: 'Home Tab4'
+  tab5: 'Home Tab5'
+  tab6: 'Home Tab6'
+  first_half_sidebar: 'First Half Sidebar'
+  first_half_sidebar_comics: 'First Half Sidebar Comics'
+  second_half_content: 'Second Half Content'
+  second_half_sidebar: 'Second Half Sidebar'
+  search: 'Search Bar'
+  share: 'Share Components'
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+
+# Libraries
+libraries:
+    - newouroboros/global-styling
+    - newouroboros/global-scripts
+
+# Information added by Drupal.org packaging script on 2017-02-05
+version: '9.x-0.x-dev'
+core: '8.x'

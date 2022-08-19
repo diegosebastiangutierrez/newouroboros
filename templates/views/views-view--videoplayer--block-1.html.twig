@@ -1,0 +1,19 @@
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+
+  {% if rows -%}
+      {{ rows }}
+    {% elseif empty -%}
+      {{ empty }}
+    {% endif %}
+  {% if more or pager %}
+<div class="btn-toolbar pager more" role="toolbar" aria-label="Paginación y Más">
+      {{ pager }}
+      {{ more }}
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,99 @@
+{% for row in rows %}
+  {% set vn = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ view_node }}']|striptags %}
+  {% set ct = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ created }}'] %}
+  {% set cn = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ uid }}'] %}
+  {% set pc = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] | replace({'.jpg':'.webp'}) | replace({'.jpeg':'.webp'}) | striptags | trim %}
+
+
+{% if loop.index == 1 %}
+<div class="col-sm-6 p-r-25 p-r-15-sr991">
+  <!-- Item post -->	
+  <div class="m-b-30">
+    <a href="{{ vn }}" class="wrap-pic-w hov1 trans-03">
+      {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}
+    </a>
+
+    <div class="p-t-20">
+      <hgroup>
+      <h2 class="p-b-5">
+        <a href="{{ vn }}" class="f1-m-3 cl10 hov-cl14 trans-03">
+          {{ row.content['#row']._entity.title[0].value }} 
+        </a>
+      </h2>
+      <h3 class="f1-s-2 cl14">{{ row.content['#row']._entity.field_subtitle[0].value }}</h3>
+      </hgroup>
+      
+      <div class="f2-s-1 cl15 p-b-20 p-t-10">{{ row.content['#row']._entity.body[0].summary }}</div>
+      
+      <span class="cl8 p-t-10">
+        <span class="f1-s-4">
+         Por: {{ cn }}
+        </span>
+
+        <span class="f1-s-3 m-rl-3">
+          -
+        </span>
+
+        <span class="f1-s-3">
+          {{ ct }}
+        </span>
+        
+      </span>
+      
+    </div>
+    
+  </div>
+  <!-- Item post -->
+</div>
+{% endif %}
+  
+  
+{% if loop.index == 2 %}
+<div class="col-sm-6 p-r-25 p-r-15-sr991">
+{% endif %}
+
+{% if loop.index == 2 or loop.index == 3 or loop.index == 4 %}
+<div class="flex-wr-sb-s m-b-30">
+  
+  <a href="{{ vn }}" class="size-w-1 wrap-pic-w hov1 trans-03">
+    {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}
+  </a>
+
+  <div class="size-w-2">
+    <hgroup>
+    <h2 class="p-b-5">
+      <a href="{{ vn }}" class="f1-s-5 cl10 hov-cl19 trans-03">
+        {{ row.content['#row']._entity.title[0].value }}
+      </a>
+    </h2>
+    <h3 class="f1-s-3 cl14">{{ row.content['#row']._entity.field_subtitle[0].value }}</h3>
+    </hgroup>
+    
+    <div class="f1-s-3 cl15 p-tb-5">{{ row.content['#row']._entity.body[0].summary }}</div>
+    
+    <span class="cl8">
+        
+      <span class="f1-s-4">
+       Por: {{ cn }}
+      </span>
+
+      <span class="f1-s-3 m-rl-3">
+        -
+      </span>
+
+      <span class="f1-s-3">
+        {{ ct }}
+      </span>
+
+    </span>
+
+  </div>
+
+</div>
+{% endif %}
+  
+{% if loop.index == 4 %}  
+</div>
+{% endif %}
+
+{% endfor %}

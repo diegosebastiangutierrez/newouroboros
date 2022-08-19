@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override for a views mini-pager.
+ *
+ * Available variables:
+ * - items: List of pager items.
+ *
+ * @see template_preprocess_views_mini_pager()
+ */
+
+#}
+{%
+  set btn_classes = [
+    'flex-c-c pagi-item trans-03',
+  ]
+%}
+
+{% if items.previous or items.next %}
+  <nav role="toolbar" aria-labelledby="pagination-heading" class="pager btn-group">
+    <ul class="pagination pager__items js-pager__items pager btn-group" role="group">
+      {% if items.previous %}
+        <li class="pager__item pager__item--previous">
+          <a class="{{ btn_classes|join(' ') }}" href="{{ items.previous.href }}" title="{{ 'Go to previous page'|t }}" rel="prev nofollow"{{ items.previous.attributes|without('href', 'title', 'rel') }} role="button" name="{{ 'Previous page'|t }}">
+            <span class="visually-hidden">{{ 'Previous page'|t }}</span>
+            <span aria-hidden="true">{{ items.previous.text|default('‹‹'|t) }}</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {% if items.next %}
+        <li class="pager__item pager__item--next">
+          <a href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" role="button" name="{{ 'Next page'|t }}" rel="next nofollow"{{ items.next.attributes|without('href', 'title', 'rel') }} class="{{ btn_classes|join(' ') }}">
+            <span class="visually-hidden">{{ 'Next page'|t }}</span>
+            <span aria-hidden="true">{{ items.next.text|default('››'|t) }}</span>
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

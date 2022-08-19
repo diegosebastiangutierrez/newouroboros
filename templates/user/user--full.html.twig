@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+<section class="bday-list-full">
+<article{{ attributes.addClass('top') }}>
+<figure>
+{{ content.user_picture }}
+</figure>
+
+<header>
+  <span class="site-taxonomy">Staff</span>
+  <h1>{{ user.label }}</h1>
+    <h2 class="subtitle">
+      {{ user.field_bio.summary }}
+    </h2>
+
+    {% if content.field_facebook|render|trim is not empty or content.field_twitter|render|trim is not empty or content.field_instagram|render|trim is not empty or content.field_website|render|trim is not empty %}
+    <ul class="ws">
+      {% if content.field_facebook|render|trim is not empty %}
+    <li class="flex-row">
+      <a title="{{ user.label }} en Facebook" alt="{{ user.label }} en Facebook" href="{{ user.uid.entity.field_facebook[0].url }}" rel="nofollow" target="_blank">
+        <i class="fb"></i> <span>{{ user.label }} en Facebook</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if content.field_instagram|render|trim is not empty  %}
+    <li class="flex-row">
+      <a title="{{ user.label }} en Instagram" alt="{{ user.label }} en Instagram" href="{{ user.uid.entity.field_instagram[0].url }}" rel="nofollow" target="_blank">
+        <i class="ig"></i> <span>{{ user.label }} en Instagram</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if content.field_twitter|render|trim is not empty %}
+    <li class="flex-row">
+      <a title="{{ user.label }} en Twitter" alt="{{ user.label }} en Twitter" href="{{ user.uid.entity.field_twitter[0].url }}" rel="nofollow" target="_blank">
+        <i class="tw"></i> <span>{{ user.label }} en Twitter</span>
+    </a>
+    </li>
+    {% endif %}
+    </ul>
+  {% endif %}
+</header>
+
+  <footer>
+  <h2>Biografía:</h2>
+    {{ content.field_bio }}
+  </footer>
+</article>
+</section>

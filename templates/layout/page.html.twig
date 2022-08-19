@@ -1,0 +1,136 @@
+  <!--offcanvas-->
+  <div class="offcanvas mnu d-none" id="MenuCanvas">
+    <header class="flex-row f-j-sb f-a-c underline">
+      <div class="h1">Menú</div>
+      <button class="navbar-toggler-close" aria-label="Cerrar Menú" type="button" data-target="#MenuCanvas" aria-controls="#MenuCanvas"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="close" fill="currentColor" viewBox="0 0 16 16"> <path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/> </svg> </button>
+    </header>
+    <div class="offcanvas-body">
+    <!--primary menu-->
+    {% if page.primary_menu %}
+      {{ page.primary_menu }}
+    {% endif %}
+    <!--primary menu-->
+    <!--primary menu-->
+    {% if page.secondary_menu %}
+      {{ page.secondary_menu }}
+    {% endif %}
+    <!--primary menu-->
+    </div>
+
+</div>
+<!--offcanvas-->
+<!--offcanvas-->
+<div class="offcanvas search d-none" id="SearchCanvas">
+
+  <header class="flex-row f-j-sb f-a-c underline">
+    <div class="h1">Búsqueda</div>
+    <button class="navbar-toggler-close" aria-label="Cerran Búsqueda" type="button" data-target="#SearchCanvas" aria-controls="#SeachCanvas"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="close" fill="currentColor" viewBox="0 0 16 16"> <path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/> </svg> </button>
+  </header>
+  <div class="offcanvas-body">
+    <!-- Search-->
+    {% if page.search %}
+      {{ page.search }}
+    {% endif %}
+    <!-- Search-->
+  </div>
+</div>
+<!--offcanvas-->
+
+<div class="main-container">
+  {% if page.ticker %}
+  <div class="ticker">
+    {{ page.ticker }}
+  </div>
+  {% endif %}
+
+  <header class="site-header" role="banner">
+    <div class="group-controls">
+      <div class="logo-stick">
+{{ page.logo }}
+      </div>
+
+      <div class="togglers">
+        <button class="navbar-toggler" aria-label="Abrir Búsqueda" aria-expanded="false" aria-haspopup="true" type="button" data-target="#SearchCanvas" aria-controls="#SearchCanvas"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg> </button>
+        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Abrir Menú" data-target="#MenuCanvas" aria-controls="#MenuCanvas" aria-haspopup="true"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25"> <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path> </svg> </button>
+      </div>
+
+    </div>
+
+<section class="social-top">
+
+    <div class="h6 social-title">Seguinos en las redes: </div>
+
+    <div class="social-links">
+      <a href="https://facebook.com/ouroborosworld" title="Ouroboros World en Facebook" target="_blank" rel="noopener" role="button">
+    <i class="fb"></i><span class="d-none">Ouroboros World en Facebook</span>
+  </a>
+  <a href="https://twitter.com/ouroborosworld" title="Ouroboros World en Twitter" target="_blank" rel="noopener" role="button"><i class="tw"></i><span class="d-none">Ouroboros World en Twitter</span> </a>
+  <a href="https://instagram.com/ouroborosworld" title="Ouroboros World en Instagram" target="_blank" rel="noopener" role="button"><i class="ig"></i><span class="d-none">Ouroboros World en Instagram</span> </a> <a href="https://www.youtube.com/channel/UCQXfNvSENMX9FgzB2UOkxjA" title="Ouroboros World en YouTube" target="_blank" rel="noopener" role="button"><i class="yt"></i><span class="d-none">Ouroboros World en YouTube</span> </a>
+
+    </div>
+
+</section>
+  </header>
+{% if page.breadcrumb %}
+  {{ page.breadcrumb }}
+{% endif %}
+<!--main-->
+<div class="main">
+
+{% if page.title %}
+  {{ page.title }}
+{% endif %}
+
+
+{% if page.header %}
+  {{ page.header }}
+{% endif %}
+
+{% if page.highlighted %}
+{{ page.highlighted }}
+{% endif %}
+
+{% if page.content %}
+{{ page.content }}
+{% endif %}
+
+{% if page.second_half_content %}
+{{ page.second_half_content }}
+{% endif %}
+</div>
+<!--main-->
+  <aside class="sidebar" role="complementary">
+<!-- social-->
+  {% if page.first_half_sidebar %}
+  {{ page.first_half_sidebar }}
+  {% endif %}
+
+  {% if page.second_half_sidebar %}
+  {{ page.second_half_sidebar }}
+  {% endif %}
+  </aside>
+
+  <section class="sharers fix">
+    <div class="shareon stick">
+      <button class="social_share facebook" aria-label="{{ 'Share on Facebook'|t }}" data-type="fb"></button>
+      <button class="social_share twitter" aria-label="{{ 'Share on Twitter'|t }}" data-type="twitter"></button>
+      <button class="social_share messenger" aria-label="{{ 'Share on Messenger'|t }}" data-type="livejournal"></button>
+      <button class="social_share pinterest" aria-label="{{ 'Share on Pinterest'|t }}" data-type="pinterest"></button>
+      <button class="social_share reddit" aria-label="{{ 'Share on Reddit'|t }}" data-type="reddit"></button>
+      <button class="social_share telegram" aria-label="{{ 'Share on Telegram'|t }}" data-type="telegram"></button>
+      <button class="social_share whatsapp" aria-label="{{ 'Share on Whatsapp'|t }}" data-type="whatsapp"></button>
+    </div>
+
+  {% if page.share %}
+  {{ page.share }}
+  {% endif %}
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div>Copyright © 2020 Textos Ouroboros World | Todo lo que interesa. Nada más.</div>
+    <div>All related characters, images and titles are trademarks of their respective owners.</div>
+    <div>Este sitio web es propiedad y es administrado por Diego Gutiérrez</div>
+  </footer>
+</div>

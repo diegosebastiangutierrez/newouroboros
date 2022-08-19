@@ -1,0 +1,22 @@
+{% if label_hidden %}
+  {% if multiple %}
+    <section class="preview-pages ws">
+      {% for item in items %}
+        <figure>{{ item.content }}</figure>
+      {% endfor %}
+    </section>
+  {% else %}
+    {% for item in items %}
+      <figure>{{ item.content }}</figure>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <section class="preview-pages ws">
+    <header class="sect-header">
+    <div class="h3">{{ label }}</div>
+    </header>
+    {% for item in items %}
+      <figure>{{ item.content }}</figure>
+    {% endfor %}
+  </section>
+{% endif %}

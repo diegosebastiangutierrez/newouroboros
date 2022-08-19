@@ -1,0 +1,13 @@
+<section id="birthDays" class="ws">
+{% if label %}
+<header class="sect-header">
+  <div class="h3">
+    {{ label }}
+  </div>
+</header>
+{% endif %}
+
+{% block content %}
+{{ content }}
+{% endblock %}
+</section>

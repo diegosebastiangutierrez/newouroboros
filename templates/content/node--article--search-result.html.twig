@@ -1,0 +1,34 @@
+<article class="top">
+    <header>
+      <span class="site-taxonomy">
+        {{ content.field_type }}
+      </span>
+
+      <div class="h2">
+        <a href="{{ url }}">{{ label }}</a>
+      </div>
+
+      {{ content.field_subtitle }}
+
+      {% if display_submitted %}
+      <div class="author-data">
+        Por:{{ author_name }} - {{ date }} * Se lee en: {{ content.read_time }}
+      </div>
+      {% endif %}
+
+  </header>
+
+    <figure>
+    {{ content.field_image }}
+    </figure>
+
+    <footer>
+{% if snippet %}
+  <p{{ content_attributes }}>{{ snippet }}</p>
+{% endif %}
+{% if info %}
+  <p>{{ info }}</p>
+{% endif %}
+    </footer>
+
+</article>

@@ -1,0 +1,38 @@
+<article class="top">
+  <figure>
+    <a href="{{ url }}" alt="{{ label|striptags }}">{{ content.field_image }}</a>
+  </figure>
+
+  <header>
+
+    <div class="container h-full flex-col-e-c p-b-58">
+      <span class="site-taxonomy">
+        {{ content.field_type }}
+      </span>
+
+      <div class="h2">
+        <a href="{{ url }}" alt="{{ label|striptags }}">{{ label }}</a>
+      </div>
+
+      <div class="subtitle">
+        {{ content.field_subtitle }}
+      </div>
+
+
+      {% if display_submitted %}
+      <div class="author-data">
+        Por:{{ author_name }} - {{ date }} * Se lee en: <i class="icon fa fa-clock"></i> {{ content.read_time }}
+      </div>
+      {% endif %}
+
+    </div>
+
+  </header>
+
+    <div class="post-body">
+
+      {{ content.body }}
+
+    </div>
+
+</article>

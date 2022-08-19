@@ -1,0 +1,79 @@
+<article class="main-article">
+  <header>
+
+  </header>
+
+<section class="node-author">
+<header class="sect-header">
+  <div class="site-taxonomy">Subido por:</div>
+  <div class="h2">{{ author_name|striptags}}</div>
+  <div class="minibio">{{ node.Owner.field_bio.summary }}</div>
+</header>
+<figure>
+  <img src="{{ file_url(node.Owner.user_picture.0.entity.uri.value) }}" width="200" height="200" alt="{{ author_name|striptags }}" title="{{ author_name|striptags }}"/>
+</figure>
+</section>
+
+    <div{{ attributes.addClass('post-body') }}>
+
+{{ content.body }}
+
+      <div class="digital-comic-pages">
+        <header class="screenControls" data-action="full">
+
+          <button id="fullScreen" class="btn btn-xs btn-danger" data-action="fullscreen" data-status="on" alt="Enter FullScreen" title="Enter FullScreen">
+            <i class="fas fa-search-plus"></i>
+          </button>
+          <button id="exitFullScreen" class="btn btn-xs btn-primary" data-action="exitfullscreen" data-status="off" title="Exit FullScreen" alt="Exit FullScreen">
+            <i class="fas fa-compress-arrows-alt"></i>
+          </button>
+        </header>
+
+        {{ content.field_paginas }}
+      </div>
+
+    </div>
+
+    <section class="sharers">
+      <div class="h3 flex-row f-j-c">Si te gustó, Compartilo!</div>
+      <div class="shareon flex-row f-j-c">
+      <button class="social_share facebook" aria-label="{{ 'Share on Facebook'|t }}" data-type="fb"></button>
+      <button class="social_share twitter" aria-label="{{ 'Share on Twitter'|t }}" data-type="twitter"></button>
+      <button class="social_share messenger" aria-label="{{ 'Share on Messenger'|t }}" data-type="livejournal"></button>
+      <button class="social_share pinterest" aria-label="{{ 'Share on Pinterest'|t }}" data-type="pinterest"></button>
+      <button class="social_share reddit" aria-label="{{ 'Share on Reddit'|t }}" data-type="reddit"></button>
+      <button class="social_share telegram" aria-label="{{ 'Share on Telegram'|t }}" data-type="telegram"></button>
+      <button class="social_share whatsapp" aria-label="{{ 'Share on Whatsapp'|t }}" data-type="whatsapp"></button>
+      </div>
+    </section>
+
+    <section id="post-a-comment" class="ws">
+      <header class="sect-header">
+        <div class="h3">Dejanos tus comentarios</div>
+      </header>
+
+      <div class="section_content">
+
+        <ul class="nav-tabs" id="CommentsTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" id="native-tab" data-bs-toggle="tab" data-bs-target="#nativeComments" role="tab" aria-controls="home" aria-selected="true">Con tus datos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="facebook-tab" data-bs-toggle="tab" data-bs-target="#fbComments" role="tab" aria-controls="profile" aria-selected="false">Con Facebook</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="CommentsContent">
+          <div class="tab-pane fade" id="nativeComments" role="tabpanel" aria-labelledby="home-tab">
+          {{ content.field_comentarios }}
+          </div>
+          <div class="tab-pane fade show active" id="fbComments" role="tabpanel" aria-labelledby="profile-tab">
+          {{ content.field_facebook_comments }}
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+</article>

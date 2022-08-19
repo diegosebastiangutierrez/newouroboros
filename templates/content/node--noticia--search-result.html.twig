@@ -1,0 +1,33 @@
+<article class="top">
+    <header>
+      <span class="site-taxonomy">
+        Noticias
+      </span>
+
+      <h2 class="flex-row">
+        <a href="{{ url }}">{{ label }}</a>
+      </h2>
+      <span class="subtitle">Fuente: {{ content.field_fuente }}</span>
+      <div class="flex-row article-author">
+        <span>Por: {{ author_name }} - {{ date }} * Se lee en: <i class="icon fa fa-clock"></i> {{ content.read_time }}
+        </span>
+      </div>
+
+  </header>
+
+    <figure>
+    {{ content.field_image }}
+    </figure>
+
+    <footer>
+{% if snippet %}
+  <p{{ content_attributes }}>{{ snippet }}</p>
+{% endif %}
+{% if info %}
+  <p>{{ info }}</p>
+{% endif %}
+
+        {{ content.body }}
+    </footer>
+
+</article>

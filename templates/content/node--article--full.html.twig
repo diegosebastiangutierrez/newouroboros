@@ -1,0 +1,146 @@
+<article class="main-article">
+    <header>
+      <span class="site-taxonomy">
+        {{ content.field_type }}
+      </span>
+
+      <h1 class="flex-row">
+        {{ label }}
+      </h1>
+
+      <h2 class="flex-row">
+        {{ content.field_subtitle }}
+      </h2>
+
+      {% if display_submitted %}
+      <div class="flex-row article-author">
+        <span>Por: {{ author_name }} - {{ date }} * Se lee en: {{ content.read_time }}</span>
+      </div>
+      {% endif %}
+
+    <figure>
+    {{ content.field_image }}
+    </figure>
+
+  </header>
+
+    <div{{ attributes.addClass('post-body') }}>
+
+{%
+set mySections = {
+4348:'En la sección Lección de anatomía, desentrañamos dudas
+y respondemos preguntas de difícil respuesta.',
+4346:'This Vicious Cabaret...',
+5134:'La Zona Fantasma'
+}
+
+%}
+
+      {% if node.field_secciones[0].entity.id in mySections|keys %}
+      {% set sect = node.field_secciones[0].entity.id %}
+      {% set secttext = mySections[node.field_secciones[0].entity.id] %}
+      <section class="article_section_header">
+        <a href="#post-a-comment" alt="{{secttext}}">
+<img alt="{{secttext}}" title="{{secttext}}" class="lazyload" data-src="/themes/newouroboros/assets/img/sections/{{sect}}_header.jpg"/></a>
+      </section>
+        {% endif %}
+
+        {{ content.body }}
+
+        {{ content.field_downloads }}
+
+      {% if node.field_secciones[0].entity.id in mySections|keys %}
+      <section class="article_section_header">
+        <a href="#post-a-comment" alt="{{secttext}}">
+<img alt="{{secttext}}" title="{{secttext}}" class="lazyload" data-src="/themes/newouroboros/assets/img/sections/{{sect}}_footer.jpg"/></a>
+      </section>
+        {% endif %}
+
+        {% if node.field_is_giveaway.value == true %}
+        {% set commentText = "Dejá tus Comentarios y Ganá" %}
+        {% set commentSVG = "comentaygana.svg" %}
+        <section class="giveaway_section">
+          {% set sect = node.field_secciones[0].entity.id  %}
+          <a href="#post-a-comment" alt="Dejá tu comentario para participar"><img alt="Dejá tu comentario para participar" title="Dejá tu comentario para participar" class="lazyload"  data-src="/themes/newouroboros/assets/img/sections/{{sect}}.jpg"/></a>
+         <div class="giveaway_date"><span>Se sortea en</span>{{ content.field_fecha_sorteo }}</div>
+        </section>
+        {% else %}
+        {% set commentText = "Dejá tus Comentarios" %}
+        {% set commentSVG = "comenta.svg" %}
+        {% endif %}
+
+        {% if node.field_is_discount.value == true %}
+        <section class="giveaway_section">
+          {% set sect = node.field_secciones[0].entity.id  %}
+          <img alt="Disfrutá del descuento" title="Disfrutá del descuento" class="lazyload" data-src="/themes/newouroboros/assets/img/sections/{{sect}}.jpg"/>
+          <div class="giveaway_date"><span>Válido hasta: </span>{{ content.field_fecha_descuento }}</div>
+        </section>
+        {% endif %}
+
+    </div>
+
+    <section id="articleTags" class="ws">
+      <header class="sect-header">
+        <div class="h3">Etiquetas</>
+      </header>
+
+      <div class="art-labels">
+    {{ content|without('body','field_image', 'field_downloads','field_isbn','field_facebook_comments', 'field_subtitle', 'read_time', 'addtoany', 'field_comentarios', 'field_is_giveaway', 'field_is_discount', 'field_fecha_descuento','field_fecha_sorteo', 'field_secciones', 'field_likes', 'field_type', 'field_art', 'field_scr') }}
+      </div>
+
+    </section>
+
+<section class="node-author">
+<header class="sect-header">
+  <div class="site-taxonomy">Escrito por:</div>
+  <div class="h2">{{ author_name|striptags}}</div>
+  <div class="minibio">{{ node.Owner.field_bio.summary }}</div>
+</header>
+<figure>
+  <img src="{{ file_url(node.Owner.user_picture.0.entity.uri.value) }}" width="200" height="200" alt="{{ author_name|striptags }}" title="{{ author_name|striptags }}"/>
+</figure>
+</section>
+
+    <section class="sharers">
+      <div class="h3 flex-row f-j-c">Si te gustó, Compartilo!</div>
+      <div class="shareon flex-row f-j-c">
+      <button class="social_share facebook" aria-label="{{ 'Share on Facebook'|t }}" data-type="fb"></button>
+      <button class="social_share twitter" aria-label="{{ 'Share on Twitter'|t }}" data-type="twitter"></button>
+      <button class="social_share messenger" aria-label="{{ 'Share on Messenger'|t }}" data-type="livejournal"></button>
+      <button class="social_share pinterest" aria-label="{{ 'Share on Pinterest'|t }}" data-type="pinterest"></button>
+      <button class="social_share reddit" aria-label="{{ 'Share on Reddit'|t }}" data-type="reddit"></button>
+      <button class="social_share telegram" aria-label="{{ 'Share on Telegram'|t }}" data-type="telegram"></button>
+      <button class="social_share whatsapp" aria-label="{{ 'Share on Whatsapp'|t }}" data-type="whatsapp"></button>
+      </div>
+    </section>
+
+    <section id="post-a-comment" class="ws">
+      <header class="sect-header">
+        <div class="h3">{{ commentText }}</div>
+      </header>
+
+      <div class="section_content">
+
+        <ul class="nav-tabs" id="CommentsTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" id="native-tab" data-bs-toggle="tab" data-bs-target="#nativeComments" role="tab" aria-controls="home" aria-selected="true">Con tus datos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="facebook-tab" data-bs-toggle="tab" data-bs-target="#fbComments" role="tab" aria-controls="profile" aria-selected="false">Con Facebook</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="CommentsContent">
+          <div class="tab-pane fade" id="nativeComments" role="tabpanel" aria-labelledby="home-tab">
+          {{ content.field_comentarios }}
+          </div>
+          <div class="tab-pane fade show active" id="fbComments" role="tabpanel" aria-labelledby="profile-tab">
+          {{ content.field_facebook_comments }}
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+</article>

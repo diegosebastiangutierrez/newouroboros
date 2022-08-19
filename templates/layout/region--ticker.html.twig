@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% if content %}
+<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
+  <span class="text-uppercase cl2 p-r-8"><i class="fas fa-gift"></i> SORTEOS VIGENTES:</span>
+{{ content }}
+</div>
+{% endif %}

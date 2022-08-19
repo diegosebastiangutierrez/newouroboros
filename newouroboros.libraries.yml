@@ -1,0 +1,13 @@
+global-styling:
+  Version: 5.x
+  css:
+    theme:
+      assets/css/main.css: {}
+      assets/css/shareon.min.css: { minified: true }
+
+global-scripts:
+  version: 1.x
+  js:
+    assets/js/main.js: { scope: footer }
+    assets/js/jsshare.js: { scope: footer }
+    assets/js/fuckadblock.min.js: { scope: footer, minified: true }

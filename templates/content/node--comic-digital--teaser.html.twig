@@ -1,0 +1,45 @@
+<article>
+  <header class="container">
+      <h2 class="f1-l-4 cl0 p-b-1 how1-child2 text-uppercase txt-center respon2">
+        {{ label }}
+      </h2>
+
+    <div class="post-body">
+    {{ content.body }}
+    </div>
+
+
+      {% if display_submitted %}
+      <div class="flex-wr-c-s f1-s-3 how1-child2 cl0 txt-center">
+        <span class="m-rl-7">Por:
+          <span class="f1-s-4 cl8 hov-cl10 trans-03">
+            {{ author_name }}
+          </span>
+          <span class="m-rl-3">-</span>
+
+          <span class="cl8 m-rl-7 txt-center">
+            {{ date }}
+          </span>
+        </span>
+
+      </div>
+      {% endif %}
+
+  </header>
+
+    <div{{ attributes.addClass('p-b-50', 'p-t-50') }}>
+
+      <div class="digital-comic-pages-small">
+
+        {{ content.field_paginas }}
+      </div>
+
+    </div>
+
+  <aside class="p-b-20" id="articleTags">
+
+
+  {{ content|without('body','field_paginas', 'field_downloads','field_isbn','field_facebook_comments', 'field_subtitle', 'read_time', 'addtoany', 'field_comentarios', 'field_is_giveaway', 'field_is_discount', 'field_fecha_descuento','field_fecha_sorteo', 'field_secciones', 'field_likes', 'field_type') }}
+
+  </aside>
+</article>

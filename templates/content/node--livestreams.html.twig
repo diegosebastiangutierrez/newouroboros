@@ -1,0 +1,114 @@
+<article class="main-article">
+
+    <header class="livestream">
+      <span class="site-taxonomy">
+        Livestreams
+      </span>
+
+      <hgroup>
+        <h1>
+          {{ label }}
+        </h1>
+
+        <h2>
+          {{ content.field_subtitle }}
+        </h2>
+      </hgroup>
+
+    <figure class="video-container">
+    {{ content.field_video_embed }}
+    </figure>
+
+    </header>
+
+      <div class="post-body">
+
+        {{ content.body }}
+
+        {{ content.field_downloads }}
+
+        {% if node.field_is_giveaway.value == true %}
+        {% set commentText = "Dejá tus Comentarios y Ganá" %}
+        <section class="giveaway_section">
+          {% set sect = node.field_secciones[0].entity.id  %}
+         <footer><h5>Se sortea en:</h5>{{ content.field_fecha_sorteo }}</footer>
+        </section>
+        {% else %}
+        {% set commentText = "Dejá tus Comentarios" %}
+        {% endif %}
+
+        {% if node.field_is_discount.value == true %}
+        <section class="giveaway_section">
+          {% set sect = node.field_secciones[0].entity.id  %}
+          <footer>Válido hasta: {{ content.field_fecha_descuento }}</footer>
+        </section>
+        {% endif %}
+
+      </div>
+
+
+    <section id="articleTags" class="ws">
+      <header class="sect-header">
+        <div class="h3">Etiquetas</>
+      </header>
+
+      <div class="art-labels">
+          {{ content|without('body','field_image', 'field_video_embed', 'field_downloads','field_isbn','field_facebook_comments', 'field_subtitle', 'read_time',  'field_comentarios', 'field_is_giveaway', 'field_is_discount', 'field_fecha_descuento','field_fecha_sorteo', 'field_secciones', 'field_likes', 'field_type') }}
+      </div>
+
+    </section>
+
+    <section class="sharers">
+      <div class="h3 flex-row f-j-c">Si te gustó, Compartilo!</div>
+      <div class="shareon flex-row f-j-c">
+      <button class="social_share facebook" aria-label="{{ 'Share on Facebook'|t }}" data-type="fb"></button>
+      <button class="social_share twitter" aria-label="{{ 'Share on Twitter'|t }}" data-type="twitter"></button>
+      <button class="social_share messenger" aria-label="{{ 'Share on Messenger'|t }}" data-type="livejournal"></button>
+      <button class="social_share pinterest" aria-label="{{ 'Share on Pinterest'|t }}" data-type="pinterest"></button>
+      <button class="social_share reddit" aria-label="{{ 'Share on Reddit'|t }}" data-type="reddit"></button>
+      <button class="social_share telegram" aria-label="{{ 'Share on Telegram'|t }}" data-type="telegram"></button>
+      <button class="social_share whatsapp" aria-label="{{ 'Share on Whatsapp'|t }}" data-type="whatsapp"></button>
+      </div>
+    </section>
+
+<section class="node-author">
+<header class="sect-header">
+  <div class="site-taxonomy">Subido por:</div>
+  <div class="h2">{{ author_name|striptags}}</div>
+  <div class="minibio">{{ node.Owner.field_bio.summary }}</div>
+</header>
+<figure>
+  <img src="{{ file_url(node.Owner.user_picture.0.entity.uri.value) }}" width="200" height="200" alt="{{ author_name|striptags }}" title="{{ author_name|striptags }}"/>
+</figure>
+</section>
+
+    <section id="post-a-comment" class="ws">
+      <header class="sect-header">
+        <div class="h3">{{ commentText }}</div>
+      </header>
+
+      <div class="section_content">
+
+        <ul class="nav-tabs" id="CommentsTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" id="native-tab" data-bs-toggle="tab" data-bs-target="#nativeComments" role="tab" aria-controls="home" aria-selected="true">Con tus datos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="facebook-tab" data-bs-toggle="tab" data-bs-target="#fbComments" role="tab" aria-controls="profile" aria-selected="false">Con Facebook</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="CommentsContent">
+          <div class="tab-pane fade" id="nativeComments" role="tabpanel" aria-labelledby="home-tab">
+          {{ content.field_comentarios }}
+          </div>
+          <div class="tab-pane fade show active" id="fbComments" role="tabpanel" aria-labelledby="profile-tab">
+          {{ content.field_facebook_comments }}
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+</article>

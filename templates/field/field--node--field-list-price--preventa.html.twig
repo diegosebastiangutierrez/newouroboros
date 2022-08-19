@@ -1,0 +1,12 @@
+{%
+  set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden'
+  ]
+%}
+
+<section>
+<span class="label">{{ label }}</span>
+{% for item in items %}
+{{ item.content }}
+{% endfor %}
+</section>

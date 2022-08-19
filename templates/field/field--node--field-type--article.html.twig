@@ -1,0 +1,9 @@
+{% if multiple %}
+<ul>
+{% endif %}
+{% for item in items %}
+  {{ item.content }}
+{% endfor %}
+{% if multiple %}
+</ul>
+{% endif %}

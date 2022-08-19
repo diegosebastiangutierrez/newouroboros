@@ -1,0 +1,96 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="main-container">
+  {% if page.ticker %}
+  <div class="ticker">
+    {{ page.ticker }}
+  </div>
+  {% endif %}
+
+  <header class="site-header" role="banner">
+    <div class="group-controls">
+      <div class="logo-stick">
+    <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
+      <img src="{{ logo }}" alt="{{ 'Home'|t }}"/>
+    </a>
+      </div>
+
+      <div class="togglers">
+        <button class="navbar-toggler" type="button" data-target="#SearchCanvas" aria-controls="offcanvas"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg> </button>
+        <button class="navbar-toggler" type="button" data-target="#MenuCanvas" aria-controls="offcanvas"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25"> <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path> </svg> </button>
+      </div>
+
+    </div>
+
+<section class="social-top">
+
+    <div class="h6 social-title">Seguinos en las redes: </div>
+
+    <div class="social-links">
+      <a href="https://facebook.com/ouroborosworld" title="Ouroboros World en Facebook" target="_blank" rel="noopener">
+    <i class="fb"></i><span class="d-none">Ouroboros World en Facebook</span>
+  </a>
+  <a href="https://twitter.com/ouroborosworld" title="Ouroboros World en Twitter" target="_blank" rel="noopener"><i class="tw"></i><span class="d-none">Ouroboros World en Twitter</span> </a>
+  <a href="https://instagram.com/ouroborosworld" title="Ouroboros World en Instagram" target="_blank" rel="noopener"><i class="ig"></i><span class="d-none">Ouroboros World en Instagram</span> </a> <a href="https://www.youtube.com/channel/UCQXfNvSENMX9FgzB2UOkxjA" title="Ouroboros World en YouTube" target="_blank" rel="noopener"><i class="yt"></i><span class="d-none">Ouroboros World en YouTube</span> </a>
+
+    </div>
+
+</section>
+  </header>
+{% if page.breadcrumb %}
+  {{ page.breadcrumb }}
+{% endif %}
+<!--main-->
+<div class="main">
+
+{% if title %}
+  <h1>{{ title }}</h1>
+{% endif %}
+
+
+{% if page.header %}
+  {{ page.header }}
+{% endif %}
+
+{% if page.highlighted %}
+{{ page.highlighted }}
+{% endif %}
+
+{% if page.content %}
+{{ page.content }}
+{% endif %}
+
+{% if page.second_half_content %}
+{{ page.second_half_content }}
+{% endif %}
+</div>
+<!--main-->
+  <aside class="sidebar" role="complementary">
+<!-- social-->
+  {% if page.first_half_sidebar %}
+  {{ page.first_half_sidebar }}
+  {% endif %}
+
+  {% if page.second_half_sidebar %}
+  {{ page.second_half_sidebar }}
+  {% endif %}
+  </aside>
+
+  <footer class="site-footer" role="contentinfo">
+    <div>Copyright © 2020 Textos Ouroboros World | Todo lo que interesa. Nada más.</div>
+    <div>All related characters, images and titles are trademarks of their respective owners.</div>
+  </footer>
+</div>

@@ -1,0 +1,68 @@
+<article{{ attributes.addClass('main-article') }}>
+
+  <figure>
+    {{ content.field_image }}
+  </figure>
+
+  <div class="map">
+    {{ content.field_location }}
+  </div>
+
+  <header>
+
+      {% if content.field_facebook|render|trim is not empty or content.field_twitter|render|trim is not empty or content.field_instagram|render|trim is not empty or content.field_website|render|trim is not empty %}
+      <ul role="toolbar" aria-label="Puntos de Contacto">
+    {% if content.field_facebook|render|trim is not empty %}
+    <li>
+      <a title="{{ node.title.0.value }} en Facebook" alt="{{ node.title.0.value }} en Facebook" href="{{ node.field_facebook.0.url }}" rel="nofollow" target="_blank">
+      <i class="fb"></i>
+      <span>{{ node.title.0.value }} en Facebook</span>
+    </a>
+    </li>
+    {% endif %}
+    {% if content.field_instagram|render|trim is not empty  %}
+    <li>
+    <a title="{{ node.title.0.value }} en Instagram" alt="{{ node.title.0.value }} en Instagram" href="{{ node.field_instagram.0.url }}" rel="nofollow" target="_blank">
+      <i class="ig"></i>
+      <span>{{ node.title.0.value }} en Instagram</span>
+    </a>
+    </li>
+{% endif %}
+    {% if content.field_twitter|render|trim is not empty %}
+    <li>
+    <a title="{{ node.title.0.value }} en Twitter" alt="{{ node.title.0.value }} en Twitter" href="{{ node.field_twitter.0.url }}" rel="nofollow" target="_blank">
+      <i class="tw"></i>
+      <span>{{ node.title.0.value }} en Twitter</span>
+    </a>
+    </li>
+    {% endif %}
+    {% if content.field_website|render|trim is not empty %}
+    <li>
+    <a title="{{ node.title.0.value }} en la Web" alt="{{ node.title.0.value }} en la Web" href="{{ node.field_website.0.url }}" rel="nofollow" target="_blank" class="btn btn-sm btn-success m-l-5">
+      <i class="world"></i>
+      <span>{{ node.title.0.value }} en la Web</span>
+    </a>
+    </li>
+    {% endif %}
+    </ul>
+      {% endif %}
+
+  </header>
+
+  <div>
+
+    {{ content.body }}
+
+    {% if content.field_phone|render|trim is not empty or content.field_contacto|render|trim is not empty %}
+    <details>
+      <summary>{{ 'Contact'|trans }}</summary>
+
+    {{ content.field_phone }}
+    {{ content.field_contacto }}
+    </details>
+    {% endif %}
+
+    {{ content|without('body','field_image', 'field_phone', 'field_contacto', 'field_website', 'field_facebook', 'field_twitter', 'field_instagram', 'field_location') }}
+  </div>
+
+</article>

@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if breadcrumb %}
+<div class="breadcrumbs">
+  <i class="gps" alt="{{ 'Estás aquí'|t }}" title="{{ 'Estás aquí'|t }}"></i>
+  <nav role="navigation" class="flex-container">
+    {% for item in breadcrumb %}
+        {% if item.url %}
+          <a href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          {{ item.text }}
+        {% endif %}
+    {% endfor %}
+  </nav>
+</div>
+{% endif %}

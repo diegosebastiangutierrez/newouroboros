@@ -1,0 +1,69 @@
+<article class="main-article preventa">
+
+    <header>
+      <span class="site-taxonomy">
+        Preventas
+      </span>
+
+      <h1 class="flex-row">{{ label }}</h1>
+      <h2 class="flex-row">
+        <span class="subtitle">
+        {{ content.field_creators }}
+        </span>
+      </h2>
+
+      {{ content.field_creative_house }}
+
+      {{ content.field_available_dates }}
+
+        {{ content.field_cant_paginas }}
+        {{ content.field_list_price }}
+        {{ content.field_presales_price }}
+  </header>
+
+  {{ content.field_image }}
+
+
+      <div class="post-body">
+
+        {{ content.body }}
+
+
+
+        {{ content.field_sales_url }}
+
+        {{ content.field_preview_pages }}
+
+
+        {% if node.field_is_giveaway.value == true %}
+        {% set commentText = "Dejá tus Comentarios y Ganá" %}
+        {% set commentSVG = "comenta.svg" %}
+        <figure class="giveaway_section">
+          {% set sect = node.field_secciones[0].entity.id  %}
+          <a href="#post-a-comment" alt="Dejá tu comentario para participar"><img alt="Dejá tu comentario para participar" title="Dejá tu comentario para participar" class="lazyload" data-src="/themes/newouroboros/assets/img/sections/{{sect}}.png"/></a>
+         <figcaption>Se sortea el {{ content.field_fecha_sorteo.0 | raw }}</figcaption>
+        </figure>
+        {% else %}
+        {% set commentText = "Dejá tus Comentarios" %}
+        {% set commentSVG = "comenta.svg" %}
+        {% endif %}
+
+
+            {{ content|without('body','field_image', 'addtoany', 'read_time', 'field_comentarios', 'field_is_giveaway', 'field_fecha_sorteo', 'field_secciones', 'field_preview_pages', 'field_sales_url', 'field_cant_paginas', 'field_creative_house', 'field_available_dates', 'field_presales_price', 'field_list_price', 'field_creators', 'field_pickup_address') }}
+
+    {% if content.field_comentarios %}
+    <section id="post-a-comment">
+
+      <div class="h4">
+        {{ commentText }}
+      </h4>
+
+      <div class="section_content">
+      {{ content.field_comentarios }}
+      </div>
+
+    </section>
+    {% endif %}
+  </div>
+
+</article>

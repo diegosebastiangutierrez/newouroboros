@@ -1,0 +1,8 @@
+<section class="livestream-block">
+  {% if label %}
+    <span{{ title_attributes }}> {{ label }}</span>
+  {% endif %}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</section>

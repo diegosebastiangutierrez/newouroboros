@@ -1,0 +1,52 @@
+{% if items %}
+  <nav class="pager" role="navigation" aria-labelledby="{{ heading_id }}">
+    <ul class="pagination js-pager__items btn-group">
+        {% if items.first %}
+        <li>
+          <a href="{{ items.first.href }}" rel="nofollow" title="{{ 'Go to first page'|t }}"{{ items.first.attributes.addClass('btn btn-primary')|without('href', 'title') }} role="button" name="{{ 'First page'|t }}">
+            <span class="visually-hidden">{{ 'First page'|t }}</span>
+            <span aria-hidden="true">{{ items.first.text|default('«') }}</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if items.previous %}
+        <li>
+          <a href="{{ items.previous.href }}" title="{{ 'Go to previous page'|t }}" rel="prev nofollow"{{ items.previous.attributes.addClass('btn btn-primary')|without('href', 'title', 'rel') }} role="button" name="Anterior">
+            <span aria-hidden="true">{{ items.previous.text|default('‹') }}</span>
+          </a>
+        </li>
+      {% endif %}
+      {% for key, item in items.pages %}
+        <li>
+          {% if current == key %}
+            {% set title = 'Current page'|t %}
+          {% else %}
+            {% set title = 'Go to page @key'|t({'@key': key}) %}
+          {% endif %}
+          <a href="{{ item.href }}" rel="nofollow" title="{{ title }}"{{ item.attributes.addclass('btn btn-primary', current == key ? 'active' : '')|without('href', 'title') }} role="button" name="{{ current == key ? 'Current page'|t : 'Page'|t }}">
+            <span class="visually-hidden">
+              {{ current == key ? 'Current page'|t : 'Page'|t }}
+            </span>
+            {{- key -}}
+          </a>
+        </li>
+      {% endfor %}
+      {# Print next item if we are not on the last page. #}
+      {% if items.next %}
+        <li>
+          <a href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next nofollow"{{ items.next.attributes.addclass('btn btn-primary')|without('href', 'title', 'rel') }}>
+            <span aria-hidden="true">{{ items.next.text|default('›') }}</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if items.last %}
+        <li>
+          <a href="{{ items.last.href }}" rel="nofollow" title="{{ 'Go to last page'|t }}"{{ items.last.attributes.addClass('btn btn-primary')|without('href', 'title') }} role="button" name="{{ 'Last page'|t }}">
+            <span class="visually-hidden">{{ 'Last page'|t }}</span>
+            <span aria-hidden="true">{{ items.last.text|default('»') }}</span>
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
