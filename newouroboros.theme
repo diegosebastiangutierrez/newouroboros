@@ -115,7 +115,7 @@ function newouroboros_theme_suggestions_container_alter(&$suggestions, array $va
  * Implements hook_theme_suggestions_HOOK() for contact form suggestion.
  */
 function newouroboros_theme_suggestions_form_alter(array &$suggestions, array $variables) {
-    error_log(array_keys($variables));
+//    error_log(array_keys($variables));
 }
 
 function newouroboros_preprocess_field(&$vars) {

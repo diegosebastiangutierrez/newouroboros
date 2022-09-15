@@ -173,6 +173,8 @@
 --author-data-weight:bold;
 
 --grid-gap:1rem;
+--grid-padding:1rem;
+--grid-margin:1rem;
 
 --color-fb:#043677;
 --color-tw:#1DA1F2;
@@ -465,6 +467,11 @@ grid-template-areas:
 'left footer footer footer footer footer footer footer footer footer footer footer footer footer footer right'
 }
 
+.main-container > *{
+padding:var(--grid-padding);
+margin:var(--grid-margin);
+}
+
 .flex-container{
 max-width:1920px;
 margin:0 auto;
@@ -612,12 +619,11 @@ background: black;
 
 /*sharing*/
 .fixedfb{
-width: 225px;
-height: 80px;
-border:1px dotted yellow;
+width: 250px;
+height: 60px;
 position: fixed;
 bottom: 1rem;
-right: 1rem;
+left: 1rem;
 z-index:3000;
 }
 
