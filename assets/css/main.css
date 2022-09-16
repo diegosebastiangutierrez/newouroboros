@@ -467,11 +467,6 @@ grid-template-areas:
 'left footer footer footer footer footer footer footer footer footer footer footer footer footer footer right'
 }
 
-.main-container > *{
-padding:var(--grid-padding);
-margin:var(--grid-margin);
-}
-
 .flex-container{
 max-width:1920px;
 margin:0 auto;

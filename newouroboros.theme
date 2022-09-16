@@ -39,20 +39,14 @@ function newouroboros_page_attachments_alter(array &$page) {
     ],
   ];
 
- /*
-  $user = \Drupal::currentUser()->id();
-
-  if(!$user){
-    $unset_meta = array('system_meta_generator', 'system/base');
-  }else $unset_meta = array('system_meta_generator');
- */
- $unset_meta = array('system_meta_generator', 'system/base');
+ $unset_meta = array('hreflang', 'system_meta_generator', 'system/base', 'facebook_comments/fluid');
 
   foreach ($page['#attached']['library'] as $key => $value) {
     if (in_array($value, $unset_meta)) unset($page['#attached']['library'][$key]);
   }
 
   foreach ($page['#attached']['html_head'] as $key => $value) {
+
     if (in_array($value[1], $unset_meta)) unset($page['#attached']['html_head'][$key]);
   }
 
@@ -109,13 +103,6 @@ function newouroboros_theme_suggestions_container_alter(&$suggestions, array $va
   if (isset($element['#type']) && $element['#type'] == 'container' && isset($element['children']['#type'])) {
     $suggestions[] = 'container__' . $element['children']['#type'];
   }
-}
-
-/**
- * Implements hook_theme_suggestions_HOOK() for contact form suggestion.
- */
-function newouroboros_theme_suggestions_form_alter(array &$suggestions, array $variables) {
-//    error_log(array_keys($variables));
 }
 
 function newouroboros_preprocess_field(&$vars) {
