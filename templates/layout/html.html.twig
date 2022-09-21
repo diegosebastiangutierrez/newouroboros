@@ -3,7 +3,7 @@
   <head>
     <head-placeholder token="{{ placeholder_token|raw }}">
     <meta name="theme-color" content="851b18">
-    <link rel="apple-touch-icon" href="{{ base_path ~ directory }}/assets/icons/180x180.png">
+    <link rel="apple-touch-icon" href="/{{ base_path ~ directory }}/assets/icons/180x180.png">
     <title>{{ head_title|safe_join(' | ') }}</title>
 <css-placeholder token="{{ placeholder_token|raw }}">
 <js-placeholder token="{{ placeholder_token|raw }}">
@@ -19,11 +19,17 @@
 
 </head>
 <body>
-
+  <a href="#main-content" class="skip-link">
+   {{ 'Skip to main content'|t }}
+  </a>
 {{ page_top }}
 {{ page }}
 {{ page_bottom }}
 
 <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+<a href="#main-content" class="visually-hidden focusable skip-link">
+   {{ 'Skip to main content'|t }}
+  </a>
+
 </body>
 </html>

@@ -77,7 +77,7 @@
   {{ page.breadcrumb }}
 {% endif %}
 <!--main-->
-<div class="main">
+<div class="main" id="main-content">
 
 {% if page.title %}
   {{ page.title }}
@@ -128,9 +128,12 @@
   {% endif %}
   </section>
 
+  {% if page.footer_first %}
+  {{ page.footer_first }}
+  {% endif %}
+
   <footer class="site-footer" role="contentinfo">
     <div>Copyright © 2020 Textos Ouroboros World | Todo lo que interesa. Nada más.</div>
     <div>All related characters, images and titles are trademarks of their respective owners.</div>
-    <div>Este sitio web es propiedad y es administrado por Diego Gutiérrez</div>
   </footer>
 </div>

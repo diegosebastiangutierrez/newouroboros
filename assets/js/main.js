@@ -50,6 +50,7 @@
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
+
 (function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
 var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
 f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);

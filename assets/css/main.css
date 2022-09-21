@@ -393,6 +393,24 @@ iframe{
 max-width:100%;
 }
 
+.skip-link{
+position:fixed;
+top:0;
+left:25%;
+right:25%;
+text-align:center;
+background:var(--black);
+color: var(--white);
+padding:var(--grid-padding);
+translate: 0 -100%;
+transition: translate 150ms ease-in-out;
+border-radius:var(--border-radius);
+}
+
+.skip-link:focus{
+translate:0;
+}
+
 .remote-video{
 position: relative;
 padding-bottom: 56.25%; /* 16:9 */
@@ -617,7 +635,7 @@ background: black;
 width: 250px;
 height: 60px;
 position: fixed;
-bottom: 1rem;
+bottom: 2rem;
 left: 1rem;
 z-index:3000;
 }
@@ -649,6 +667,10 @@ padding: 4rem 0;
 .main{
 grid-area:main;
 height:max-content;
+}
+
+section.mailerlite{
+background:lightsteelblue;
 }
 
 footer.site-footer{

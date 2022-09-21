@@ -63,6 +63,7 @@ function newouroboros_theme_suggestions_taxonomy_term_alter(array &$suggestions,
   $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
   $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
   $suggestions[] = 'taxonomy_term__' . $term->id() . '__' . $sanitized_view_mode;
+
 }
 function newouroboros_theme_suggestions_user_alter(&$suggestions, $vars, $hook) {
 
