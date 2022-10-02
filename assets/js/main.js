@@ -13,14 +13,23 @@
 
       $(context).find('.navbar-toggler').once('openers').click(function(){
         const target = this.getAttribute('data-target');
+        let ariaexpanded = this.getAttribute('aria-expanded');
+        if(ariaexpanded == 'false') this.setAttribute('aria-expanded', 'true')
+        else this.setAttribute('aria-expanded', 'false');
         document.querySelector(target).classList.toggle('d-none');
         document.querySelector('.main-container').classList.toggle('d-none');
-        const el = document.querySelector(target + ' form input') ?? document.querySelector(target + ' nav menu.main-mnu');
-        el.focus();
+        if(target == '#SearchCanvas') {
+          const el = document.querySelector(target + ' form input');
+          el.focus();
+        }
       });
 
       $(context).find('.navbar-toggler-close').once('sharers').click(function(){
         const el = document.querySelector(this.getAttribute('data-target'));
+        const elp = document.querySelector(this.getAttribute('data-parent'));
+        let ariaexpanded = elp.getAttribute('aria-expanded');
+        if(ariaexpanded == 'false') elp.setAttribute('aria-expanded', 'true');
+        else elp.setAttribute('aria-expanded', 'false');
         document.querySelector('.main-container').classList.toggle('d-none');
         el.classList.toggle('d-none');
 

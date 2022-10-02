@@ -1,8 +1,8 @@
   <!--offcanvas-->
-  <div class="offcanvas mnu d-none" id="MenuCanvas">
+  <div class="offcanvas mnu d-none" id="MenuCanvas" role="menu">
     <header class="flex-row f-j-sb f-a-c underline">
       <div class="h1">Menú</div>
-      <button class="navbar-toggler-close" aria-label="Cerrar Menú" type="button" data-target="#MenuCanvas" aria-controls="#MenuCanvas"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="close" fill="currentColor" viewBox="0 0 16 16"> <path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/> </svg> </button>
+      <button class="navbar-toggler-close" aria-label="Cerrar Menú" type="button" data-target="#MenuCanvas" aria-controls="#MenuCanvas" data-parent="#searchOpener"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="close" fill="currentColor" viewBox="0 0 16 16"> <path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/> </svg> </button>
     </header>
     <div class="offcanvas-body">
     <!--primary menu-->
@@ -20,11 +20,11 @@
 </div>
 <!--offcanvas-->
 <!--offcanvas-->
-<div class="offcanvas search d-none" id="SearchCanvas">
+<div class="offcanvas search d-none" id="SearchCanvas" role="menu">
 
   <header class="flex-row f-j-sb f-a-c underline">
     <div class="h1">Búsqueda</div>
-    <button class="navbar-toggler-close" aria-label="Cerran Búsqueda" type="button" data-target="#SearchCanvas" aria-controls="#SeachCanvas"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="close" fill="currentColor" viewBox="0 0 16 16"> <path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/> </svg> </button>
+    <button class="navbar-toggler-close" aria-label="Cerran Búsqueda" type="button" data-target="#SearchCanvas" aria-controls="#SeachCanvas" data-parent="#menuOpener" tabindex="0"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="close" fill="currentColor" viewBox="0 0 16 16"> <path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/> </svg> </button>
   </header>
   <div class="offcanvas-body">
     <!-- Search-->
@@ -50,10 +50,10 @@
       </div>
 
       <div class="togglers">
-        <button class="navbar-toggler" aria-label="Abrir Búsqueda" aria-expanded="false" aria-haspopup="true" type="button" data-target="#SearchCanvas" aria-controls="#SearchCanvas"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25">
+        <button id="searchOpener" class="navbar-toggler" aria-label="Abrir Búsqueda" aria-expanded="false" aria-haspopup="true" type="button" data-target="#SearchCanvas" aria-controls="#SearchCanvas"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25">
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
       </svg> </button>
-        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Abrir Menú" data-target="#MenuCanvas" aria-controls="#MenuCanvas" aria-haspopup="true"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25"> <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path> </svg> </button>
+        <button id="menuOpener" class="navbar-toggler" type="button" aria-expanded="false" aria-label="Abrir Menú" data-target="#MenuCanvas" aria-controls="#MenuCanvas" aria-haspopup="true"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="25" height="25"> <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path> </svg> </button>
       </div>
 
     </div>
