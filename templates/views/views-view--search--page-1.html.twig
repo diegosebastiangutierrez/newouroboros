@@ -17,9 +17,9 @@
   {{ exposed }}
   {{ attachment_before }}
 
-  {% if rows -%}
+  {% if rows %}
     {{ rows }}
-  {% elseif empty -%}
+  {% elseif empty %}
     {{ empty }}
   {% endif %}
   {% if more or pager %}

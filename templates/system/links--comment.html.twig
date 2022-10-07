@@ -33,25 +33,25 @@
  * @ingroup themeable
  */
 #}
-{% if links -%}
-  {%- if heading -%}
-    {%- if heading.level -%}
+{% if links %}
+  {% if heading %}
+    {% if heading.level %}
       <{{ heading.level }}{{ heading.attributes }}>{{ heading.text }}</{{ heading.level }}>
-    {%- else -%}
+    {% else %}
       <h2{{ heading.attributes }}>{{ heading.text }}</h2>
-    {%- endif -%}
-  {%- endif -%}
+    {% endif %}
+  {% endif %}
   <ul{{ attributes.addClass('flex-row','f-j-r') }}>
-    {%- for item in links -%}
+    {% for item in links %}
       <li{{ item.attributes }}>
-        {%- if item.link -%}
+        {% if item.link %}
           {{ item.link }}
-        {%- elseif item.text_attributes -%}
+        {% elseif item.text_attributes %}
           <span{{ item.text_attributes }}>{{ item.text }}</span>
-        {%- else -%}
+        {% else %}
           {{ item.text }}
-        {%- endif -%}
+        {% endif %}
       </li>
-    {%- endfor -%}
+    {% endfor %}
   </ul>
-{%- endif %}
+{% endif %}
