@@ -665,6 +665,7 @@ padding: 4rem 0;
 }
 
 .main{
+padding:0 2rem;
 grid-area:main;
 height:max-content;
 }
@@ -1057,7 +1058,6 @@ margin:0 0 1rem;
 display:inline-block;
 padding:0 5px;
 border-radius:0 10px;
-font-size:smaller;
 margin-bottom:.5rem;
 background: var(--red);
 color:var(--white);
@@ -1088,7 +1088,7 @@ color:var(--color-fb);
 }
 
 article.main-article .post-body{
-margin:3rem 0;
+margin:3rem 2rem;
 }
 
 article.main-article .post-body figure:hover{
@@ -1105,7 +1105,6 @@ margin:1rem 0;
 }
 
 article blockquote{
-border-radius: 0 15px;
 display:block;
 margin:var(--grid-gap) 0;
 padding: var(--grid-gap) calc(var(--grid-gap) * 2);
@@ -1115,15 +1114,6 @@ font-weight:200;
 line-height:initial;
 color:var(--white);
 background-color:var(--red);
-}
-
-article blockquote:before{
-content: "";
-display: block;
-background: url(/themes/newouroboros/assets/svg/quote.svg) no-repeat center;
-width: 100%;
-height: var(--grid-gap);
-margin:var(--grid-gap) 0;
 }
 
 .art-labels{
