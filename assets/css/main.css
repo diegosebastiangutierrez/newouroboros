@@ -217,8 +217,8 @@ transition: all .2s ease-in-out;
 }
 
 :focus{
-outline:2px solid rgb(198, 0, 33);
-outline-offset:.3rem;
+outline:5px solid rgba(198, 0, 33, .6);
+outline-offset:0;
 }
 
 body{
@@ -1112,8 +1112,7 @@ font-family:var(--header-font);
 font-size:1.2rem;
 font-weight:200;
 line-height:initial;
-color:var(--white);
-background-color:var(--red);
+border-left: 3px solid var(--black);
 }
 
 .art-labels{

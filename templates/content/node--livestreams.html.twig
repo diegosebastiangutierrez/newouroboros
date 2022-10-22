@@ -74,11 +74,11 @@
 <section class="node-author">
 <header class="sect-header">
   <div class="site-taxonomy">Subido por:</div>
-  <div class="h2">{{ author_name|striptags}}</div>
+  <div class="h2">{{ author_name|striptags|trim}}</div>
   <div class="minibio">{{ node.Owner.field_bio.summary }}</div>
 </header>
 <figure>
-  <img src="{{ file_url(node.Owner.user_picture.0.entity.uri.value) }}" width="200" height="200" alt="{{ author_name|striptags }}" title="{{ author_name|striptags }}"/>
+  <img src="{{ file_url(node.Owner.user_picture.0.entity.uri.value) }}" width="200" height="200" alt="{{ author_name|striptags|trim }}" title="{{ author_name|striptags|trim }}"/>
 </figure>
 </section>
 
