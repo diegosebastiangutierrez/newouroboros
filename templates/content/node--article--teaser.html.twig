@@ -1,6 +1,6 @@
 <article class="top">
   <figure>
-    <a href="{{ url }}" alt="{{ label|striptags|trim }}">{{ content.field_image }}</a>
+    <a href="{{ url }}" alt="{{ content.label }}">{{ content.field_image }}</a>
   </figure>
 
   <header>
@@ -11,7 +11,7 @@
       </span>
 
       <div class="h2">
-        <a href="{{ url }}" alt="{{ label|striptags|trim }}">{{ label }}</a>
+        <a href="{{ url }}" alt="{{ content.label }}">{{ label }}</a>
       </div>
 
       <div class="subtitle">
